@@ -6,7 +6,7 @@ GraphMap is a Ruby On Rails plugin that provides a few view helpers to represent
 
 You can get the code using Git:
 
-	git clone gitosis@safernet.org.br:graph_map
+	git clone git://github.com/caiosba/GraphMap.git
 
 DataMap is a Ruby library which GraphMap depends on. It's attached as a submodule, so inside the graph_map directory, do the following:
 
