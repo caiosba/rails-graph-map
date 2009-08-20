@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: DataMap::WorldMap</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">DataMap::WorldMap</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/data_map/data_map_rb.html">
+                lib/data_map/data_map.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Plots a world map as a file. The format can be SVG or any other supported
+by RMagick.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000048">add_js</a>&nbsp;&nbsp;
+      <a href="#M000062">alter_data</a>&nbsp;&nbsp;
+      <a href="#M000061">country_name</a>&nbsp;&nbsp;
+      <a href="#M000064">data</a>&nbsp;&nbsp;
+      <a href="#M000063">data=</a>&nbsp;&nbsp;
+      <a href="#M000057">default_behaviour</a>&nbsp;&nbsp;
+      <a href="#M000060">default_language</a>&nbsp;&nbsp;
+      <a href="#M000059">default_palette</a>&nbsp;&nbsp;
+      <a href="#M000058">default_template</a>&nbsp;&nbsp;
+      <a href="#M000049">identify_countries</a>&nbsp;&nbsp;
+      <a href="#M000073">js</a>&nbsp;&nbsp;
+      <a href="#M000074">js=</a>&nbsp;&nbsp;
+      <a href="#M000065">lang</a>&nbsp;&nbsp;
+      <a href="#M000066">lang=</a>&nbsp;&nbsp;
+      <a href="#M000052">make_colors</a>&nbsp;&nbsp;
+      <a href="#M000050">make_legend</a>&nbsp;&nbsp;
+      <a href="#M000053">make_ranges_linear</a>&nbsp;&nbsp;
+      <a href="#M000054">make_ranges_log</a>&nbsp;&nbsp;
+      <a href="#M000051">map_values</a>&nbsp;&nbsp;
+      <a href="#M000047">new</a>&nbsp;&nbsp;
+      <a href="#M000055">paint_country</a>&nbsp;&nbsp;
+      <a href="#M000067">palette</a>&nbsp;&nbsp;
+      <a href="#M000068">palette=</a>&nbsp;&nbsp;
+      <a href="#M000071">ranges</a>&nbsp;&nbsp;
+      <a href="#M000072">ranges=</a>&nbsp;&nbsp;
+      <a href="#M000056">save_file</a>&nbsp;&nbsp;
+      <a href="#M000069">svg</a>&nbsp;&nbsp;
+      <a href="#M000070">svg=</a>&nbsp;&nbsp;
+      <a href="#M000075">title</a>&nbsp;&nbsp;
+      <a href="#M000076">title=</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000061" class="method-detail">
+        <a name="M000061"></a>
+
+        <div class="method-heading">
+          <a href="#M000061" class="method-signature">
+          <span class="method-name">country_name</span><span class="method-args">(code, lang = default_language)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get a country name from the country code, using the file <a
+href="WorldMap.html#M000065">lang</a>/&lt;@<a
+href="WorldMap.html#M000065">lang</a>&gt;/countries.yml
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000061-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000061-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 210</span>
+210:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">country_name</span>(<span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span> = <span class="ruby-identifier">default_language</span>)
+211:       <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword kw">__FILE__</span>)) <span class="ruby-operator">+</span> <span class="ruby-value str">'/lang/'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lang</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/countries.yml'</span> )[<span class="ruby-identifier">code</span>]
+212:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000060" class="method-detail">
+        <a name="M000060"></a>
+
+        <div class="method-heading">
+          <a href="#M000060" class="method-signature">
+          <span class="method-name">default_language</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Default language to use when none is set
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000060-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000060-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 205</span>
+205:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_language</span>
+206:       <span class="ruby-value str">'en'</span>
+207:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000059" class="method-detail">
+        <a name="M000059"></a>
+
+        <div class="method-heading">
+          <a href="#M000059" class="method-signature">
+          <span class="method-name">default_palette</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Default <a href="WorldMap.html#M000067">palette</a> to use when none is set
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000059-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000059-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 200</span>
+200:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_palette</span>
+201:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword kw">__FILE__</span>)) <span class="ruby-operator">+</span> <span class="ruby-value str">'/palettes/tango.color'</span>
+202:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000058" class="method-detail">
+        <a name="M000058"></a>
+
+        <div class="method-heading">
+          <a href="#M000058" class="method-signature">
+          <span class="method-name">default_template</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Default template to use when none is set
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000058-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000058-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 195</span>
+195:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_template</span>
+196:       <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword kw">__FILE__</span>)) <span class="ruby-operator">+</span> <span class="ruby-value str">'/templates/default_world_map.svg'</span>
+197:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000047" class="method-detail">
+        <a name="M000047"></a>
+
+        <div class="method-heading">
+          <a href="#M000047" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Map constructor. Just creates a <a href="WorldMap.html">WorldMap</a> object
+that can be manipulated later. Options:
+</p>
+<pre>
+  template: What SVG file will be used as the map template to be colored.
+            The file's content will be stored in the attribute @svg.
+            Default: WorldMap.default_template
+
+  lang: Language used to show the country names. The files lang/&lt;language&gt;/{strings,countries}.yml must exist.
+        See the 'en' example.
+        The value will be stored in the attribute @lang.
+        Default: WorldMap.default_language
+
+  palette: Color palette to be used. The color palette file must one color per line.
+           A color line must be represented as the R, G and B values separated by a single space.
+           See the default color palette for an example.
+           The value will be stored in the attribute @palette.
+           Default: WorldMap.default_palette
+
+  data: The actual information you want to represent in the map.
+        Must be a hash in the format &lt;country code&gt; =&gt; &lt;value&gt;.
+        The value will be stored in the attribute @data.
+        Example: { &quot;en&quot; =&gt; 100, &quot;br&quot; =&gt; 50, &quot;es&quot; =&gt; 30 }
+        Default: {}
+
+  js: An array of Javascript files paths to be included in the generated SVG.
+      To get them really included, the method add_js must be called.
+      The value will be stored in the attribute @js.
+      Default: []
+</pre>
+<p>
+So, the above values passed will be stored as attributes of the map object.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000047-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000047-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 39</span>
+39:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+40:       
+41:       <span class="ruby-identifier">template</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:template</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_template</span>
+42:       <span class="ruby-ivar">@lang</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:lang</span>]     <span class="ruby-operator">||</span> <span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_language</span>
+43:       <span class="ruby-ivar">@palette</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:palette</span>]  <span class="ruby-operator">||</span> <span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_palette</span>
+44:       <span class="ruby-ivar">@data</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:data</span>]     <span class="ruby-operator">||</span> {}
+45:       <span class="ruby-ivar">@js</span>        = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:js</span>]       <span class="ruby-operator">||</span> []
+46:       <span class="ruby-ivar">@svg</span>       = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template</span>)
+47: 
+48:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000048" class="method-detail">
+        <a name="M000048"></a>
+
+        <div class="method-heading">
+          <a href="#M000048" class="method-signature">
+          <span class="method-name">add_js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Includes in SVG all javascript paths that are stored in the @<a
+href="WorldMap.html#M000073">js</a> attribute. Actually creates a script
+element in the SVG for each @<a href="WorldMap.html#M000073">js</a>
+element.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000048-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000048-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 52</span>
+52:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add_js</span>
+53:       <span class="ruby-ivar">@js</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+54:         <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">'&lt;!-- javascript --&gt;'</span>,<span class="ruby-value str">'&lt;!-- javascript --&gt;&lt;script xlink:href=&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">file</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; type=&quot;text/ecmascript&quot; /&gt;'</span>)
+55:       <span class="ruby-keyword kw">end</span>
+56:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000062" class="method-detail">
+        <a name="M000062"></a>
+
+        <div class="method-heading">
+          <a href="#M000062" class="method-signature">
+          <span class="method-name">alter_data</span><span class="method-args">(data = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alter @<a href="WorldMap.html#M000064">data</a> information
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000062-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000062-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 217</span>
+217:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">alter_data</span>(<span class="ruby-identifier">data</span> = {})
+218:       <span class="ruby-ivar">@data</span> = <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">data</span>)
+219:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000064" class="method-detail">
+        <a name="M000064"></a>
+
+        <div class="method-heading">
+          <a href="#M000064" class="method-signature">
+          <span class="method-name">data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets @<a href="WorldMap.html#M000064">data</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000064-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000064-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 228</span>
+228:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data</span>
+229:       <span class="ruby-ivar">@data</span>
+230:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
+
+        <div class="method-heading">
+          <a href="#M000063" class="method-signature">
+          <span class="method-name">data=</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000064">data</a> information It must be a
+hash whose key is the country code in ISO 3166-1 format and the value is a
+number
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000063-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000063-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 223</span>
+223:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">data=</span>(<span class="ruby-identifier">data</span>)
+224:       <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span>
+225:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000057" class="method-detail">
+        <a name="M000057"></a>
+
+        <div class="method-heading">
+          <a href="#M000057" class="method-signature">
+          <span class="method-name">default_behaviour</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sequence of steps normally necessary to make a full map. Just call some
+methods. See the source code below to understand.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000057-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000057-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 184</span>
+184:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_behaviour</span>
+185:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">add_js</span>
+186:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">identify_countries</span>
+187:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_ranges_log</span>
+188:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_colors</span>
+189:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">map_values</span>
+190:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">make_legend</span>
+191:       <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">save_file</span>
+192:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000049" class="method-detail">
+        <a name="M000049"></a>
+
+        <div class="method-heading">
+          <a href="#M000049" class="method-signature">
+          <span class="method-name">identify_countries</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+For each country in the SVG, adds two text attributes and javascript
+functions passing the actual SVG element as parameter. These functions must
+be defined later in your application. Added attributes:
+</p>
+<pre>
+  country-name: The country name in lang/&lt;@lang&gt;/countries.yml
+  country-value: The value for this country as stored in @data
+  onmouseover: worldMapOver(this) (you must define this function later in your application)
+  onmouseout: worldMapOut(this) (you must define this function later in your application)
+  onclick: worldMapClick(this) (you must define this function later in your application)
+  ondblclick: worldMapDblClick(this) (you must define this function later in your application)
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000049-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000049-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">identify_countries</span>
+68:       <span class="ruby-identifier">names</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword kw">__FILE__</span>)) <span class="ruby-operator">+</span> <span class="ruby-value str">'/lang/'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@lang</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/countries.yml'</span> )
+69:       <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">code</span>,<span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+70:         <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">&quot;class=\&quot;land #{code}\&quot;&quot;</span>, <span class="ruby-node">&quot;class=\&quot;land #{code}\&quot; country-name=\&quot;#{name}\&quot; country-value=\&quot;#{@data[code]}\&quot; onmouseover=\&quot;worldMapOver(this)\&quot; onmouseout=\&quot;worldMapOut(this)\&quot; onclick=\&quot;worldMapClick(this)\&quot; ondblclick=\&quot;worldMapDblClick(this)\&quot;&quot;</span>)
+71:       <span class="ruby-keyword kw">end</span>
+72:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
+
+        <div class="method-heading">
+          <a href="#M000073" class="method-signature">
+          <span class="method-name">js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets @<a href="WorldMap.html#M000073">js</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000073-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000073-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 278</span>
+278:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">js</span>
+279:       <span class="ruby-ivar">@js</span>
+280:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000074" class="method-detail">
+        <a name="M000074"></a>
+
+        <div class="method-heading">
+          <a href="#M000074" class="method-signature">
+          <span class="method-name">js=</span><span class="method-args">(js)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000073">js</a>. Must be an array of
+Javascript file paths.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000074-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000074-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 283</span>
+283:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">js=</span>(<span class="ruby-identifier">js</span>)
+284:       <span class="ruby-ivar">@js</span> = <span class="ruby-identifier">js</span>
+285:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="#M000065" class="method-signature">
+          <span class="method-name">lang</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets @<a href="WorldMap.html#M000065">lang</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000065-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000065-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 233</span>
+233:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lang</span>
+234:       <span class="ruby-ivar">@lang</span>
+235:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000066" class="method-detail">
+        <a name="M000066"></a>
+
+        <div class="method-heading">
+          <a href="#M000066" class="method-signature">
+          <span class="method-name">lang=</span><span class="method-args">(lang)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000065">lang</a>. Must be a string, and the
+files <a href="WorldMap.html#M000065">lang</a>/&lt;@<a
+href="WorldMap.html#M000065">lang</a>&gt;/{countries,strings}.yml must be
+present
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000066-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000066-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 238</span>
+238:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">lang=</span>(<span class="ruby-identifier">lang</span>)
+239:       <span class="ruby-ivar">@lang</span> = <span class="ruby-identifier">lang</span>
+240:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000052" class="method-detail">
+        <a name="M000052"></a>
+
+        <div class="method-heading">
+          <a href="#M000052" class="method-signature">
+          <span class="method-name">make_colors</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+For each range present in @<a href="WorldMap.html#M000071">ranges</a>,
+define a color for it. The colors are those in the @<a
+href="WorldMap.html#M000067">palette</a> file. Raises an exception if there
+are more <a href="WorldMap.html#M000071">ranges</a> than colors.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000052-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000052-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 113</span>
+113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_colors</span>
+114:       <span class="ruby-identifier">palette</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@palette</span>).<span class="ruby-identifier">readlines</span>
+115:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;There are more ranges (#{@ranges.size}) than colors (#{palette.size})!&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ranges</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">palette</span>.<span class="ruby-identifier">size</span>
+116:       <span class="ruby-ivar">@ranges</span>.<span class="ruby-identifier">each_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+117:         <span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span> = <span class="ruby-identifier">palette</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">split</span>.<span class="ruby-identifier">collect</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_i</span> }
+118:         <span class="ruby-ivar">@ranges</span>[<span class="ruby-identifier">i</span>][<span class="ruby-identifier">:color</span>] = <span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">RGB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">r</span>,<span class="ruby-identifier">g</span>,<span class="ruby-identifier">b</span>).<span class="ruby-identifier">html</span>
+119:       <span class="ruby-keyword kw">end</span>
+120:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000050" class="method-detail">
+        <a name="M000050"></a>
+
+        <div class="method-heading">
+          <a href="#M000050" class="method-signature">
+          <span class="method-name">make_legend</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Adds a legend to the map, using the strings and country names defined in <a
+href="WorldMap.html#M000065">lang</a>/&lt;@<a
+href="WorldMap.html#M000065">lang</a>&gt;/{countries,strings}.yml. Use the
+<a href="WorldMap.html#M000071">ranges</a> and respective colors defined in
+@<a href="WorldMap.html#M000071">ranges</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000050-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000050-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 76</span>
+76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_legend</span>
+77:       <span class="ruby-identifier">strings</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>( <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-keyword kw">__FILE__</span>)) <span class="ruby-operator">+</span> <span class="ruby-value str">'/lang/'</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@lang</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'/strings.yml'</span> )
+78:       <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+79:       <span class="ruby-identifier">legend</span> = <span class="ruby-value str">''</span>
+80:       <span class="ruby-ivar">@ranges</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+81:         <span class="ruby-identifier">y</span> = <span class="ruby-value">75</span> <span class="ruby-operator">+</span> <span class="ruby-value">40</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">i</span>
+82:         <span class="ruby-identifier">legend</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'&lt;rect x=&quot;2750&quot; class=&quot;legend&quot; y=&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; width=&quot;27&quot; height=&quot;27&quot; fill=&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">r</span>[<span class="ruby-identifier">:color</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; /&gt;
+83:                    &lt;text class=&quot;label&quot; x=&quot;2800&quot; y=&quot;'</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">y</span> <span class="ruby-operator">+</span> <span class="ruby-value">23</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; style=&quot;font-size:28px; font-family:sans-serif&quot;&gt;&lt;tspan&gt;'</span> <span class="ruby-operator">+</span> 
+84:                    [ <span class="ruby-identifier">strings</span>[<span class="ruby-value str">'between'</span>], <span class="ruby-identifier">r</span>[<span class="ruby-identifier">:range</span>][<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">strings</span>[<span class="ruby-value str">'and'</span>], <span class="ruby-identifier">r</span>[<span class="ruby-identifier">:range</span>][<span class="ruby-value">1</span>] ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>) <span class="ruby-operator">+</span>
+85:                    <span class="ruby-value str">'&lt;/tspan&gt;&lt;/text&gt;'</span>
+86:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+87:       <span class="ruby-keyword kw">end</span>
+88:       <span class="ruby-identifier">y</span> = <span class="ruby-value">75</span> <span class="ruby-operator">+</span> <span class="ruby-value">40</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span>
+89:       <span class="ruby-identifier">legend</span> <span class="ruby-operator">+=</span> <span class="ruby-value str">'&lt;rect x=&quot;2750&quot; class=&quot;legend&quot; y=&quot;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; width=&quot;27&quot; height=&quot;27&quot; style=&quot;fill:#b9b9b9&quot; /&gt;
+90:                  &lt;text class=&quot;label&quot; x=&quot;2800&quot; y=&quot;'</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">y</span> <span class="ruby-operator">+</span> <span class="ruby-value">23</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&quot; style=&quot;font-size:28px; font-family:sans-serif&quot;&gt;&lt;tspan&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">strings</span>[<span class="ruby-value str">'no_data'</span>] <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/tspan&gt;&lt;/text&gt;'</span>
+91:       <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span>, <span class="ruby-identifier">legend</span> <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&quot;</span>)
+92:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000053" class="method-detail">
+        <a name="M000053"></a>
+
+        <div class="method-heading">
+          <a href="#M000053" class="method-signature">
+          <span class="method-name">make_ranges_linear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Make the value <a href="WorldMap.html#M000071">ranges</a> using a linear
+function.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000053-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000053-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_ranges_linear</span>
+124:       <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span> = <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">first</span>, <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">last</span>
+125:       <span class="ruby-identifier">value</span> = ( ( <span class="ruby-identifier">max</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">min</span> ) <span class="ruby-operator">/</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@palette</span>).<span class="ruby-identifier">readlines</span>.<span class="ruby-identifier">size</span> ).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+126:       <span class="ruby-identifier">offset</span> = (( <span class="ruby-identifier">value</span> <span class="ruby-operator">/</span> <span class="ruby-value">10</span> <span class="ruby-operator">**</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) ).<span class="ruby-identifier">round</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)<span class="ruby-operator">*</span> <span class="ruby-value">10</span> <span class="ruby-operator">**</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+127:       <span class="ruby-identifier">last</span> = <span class="ruby-identifier">offset</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">min</span> <span class="ruby-value">? </span><span class="ruby-identifier">offset</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">min</span>
+128:       <span class="ruby-ivar">@ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-identifier">last</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] } ]
+129:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">max</span> <span class="ruby-keyword kw">do</span>
+130:         <span class="ruby-ivar">@ranges</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">last</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] }
+131:         <span class="ruby-identifier">last</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">offset</span>
+132:       <span class="ruby-keyword kw">end</span>
+133:       <span class="ruby-ivar">@ranges</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">last</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">offset</span>] }
+134:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000054" class="method-detail">
+        <a name="M000054"></a>
+
+        <div class="method-heading">
+          <a href="#M000054" class="method-signature">
+          <span class="method-name">make_ranges_log</span><span class="method-args">(base = 10)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Make the value <a href="WorldMap.html#M000071">ranges</a> using a log
+function. You can set the log base if desired. If not set by you, the
+default value is 10. For most of the maps, it&#8216;s better to use the log
+function than the linear one.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000054-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000054-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 139</span>
+139:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">make_ranges_log</span>(<span class="ruby-identifier">base</span> = <span class="ruby-value">10</span>)
+140:       <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span> = <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">first</span>, <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">last</span>
+141:       <span class="ruby-identifier">last</span> = <span class="ruby-identifier">base</span> <span class="ruby-operator">**</span> <span class="ruby-identifier">min</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span>
+142:       <span class="ruby-ivar">@ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">last</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">base</span>, <span class="ruby-identifier">last</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] } ]
+143:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">max</span> <span class="ruby-keyword kw">do</span>
+144:         <span class="ruby-ivar">@ranges</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">last</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] }
+145:         <span class="ruby-identifier">last</span> = <span class="ruby-identifier">last</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">base</span>
+146:       <span class="ruby-keyword kw">end</span>
+147:       <span class="ruby-ivar">@ranges</span> <span class="ruby-operator">&lt;&lt;</span> { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">last</span>, <span class="ruby-identifier">last</span> <span class="ruby-operator">*</span> <span class="ruby-value">10</span>] }
+148:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000051" class="method-detail">
+        <a name="M000051"></a>
+
+        <div class="method-heading">
+          <a href="#M000051" class="method-signature">
+          <span class="method-name">map_values</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Paint each country with the range&#8216;s color that the country value
+fits. Raises an exception if the value doesn&#8216;t fit in any range.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000051-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000051-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 96</span>
+ 96:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">map_values</span>
+ 97:       <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">code</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+ 98:         <span class="ruby-identifier">fit</span> = <span class="ruby-keyword kw">false</span>
+ 99:         <span class="ruby-ivar">@ranges</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+100:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">between?</span>(<span class="ruby-identifier">r</span>[<span class="ruby-identifier">:range</span>][<span class="ruby-value">0</span>],<span class="ruby-identifier">r</span>[<span class="ruby-identifier">:range</span>][<span class="ruby-value">1</span>])
+101:             <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">paint_country</span>(<span class="ruby-identifier">code</span>,<span class="ruby-identifier">r</span>[<span class="ruby-identifier">:color</span>])
+102:             <span class="ruby-identifier">fit</span> = <span class="ruby-keyword kw">true</span>
+103:             <span class="ruby-keyword kw">break</span>
+104:           <span class="ruby-keyword kw">end</span>
+105:         <span class="ruby-keyword kw">end</span>
+106:         <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unexpected error! Value #{value} doesn't fit in any range!&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">fit</span>
+107:       <span class="ruby-keyword kw">end</span>
+108:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000055" class="method-detail">
+        <a name="M000055"></a>
+
+        <div class="method-heading">
+          <a href="#M000055" class="method-signature">
+          <span class="method-name">paint_country</span><span class="method-args">(code,color)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Just paint a country with some color. Parameters:
+</p>
+<pre>
+  code: Country code
+  color: Some color string such as '#FFCC33' or 'black'
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000055-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000055-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 154</span>
+154:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">paint_country</span>(<span class="ruby-identifier">code</span>,<span class="ruby-identifier">color</span>)
+155:       <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;fill=\&quot;[^\&quot;]+\&quot; class=\&quot;land #{code}\&quot;&quot;</span>), <span class="ruby-node">&quot;fill=\&quot;#{color}\&quot; class=\&quot;land #{code}\&quot;&quot;</span>)
+156:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
+
+        <div class="method-heading">
+          <a href="#M000067" class="method-signature">
+          <span class="method-name">palette</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets @<a href="WorldMap.html#M000067">palette</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000067-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000067-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 243</span>
+243:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">palette</span>
+244:       <span class="ruby-ivar">@palette</span>
+245:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="#M000068" class="method-signature">
+          <span class="method-name">palette=</span><span class="method-args">(palette)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000067">palette</a>. Must be a path for a
+file. Each line of this file must be a color, with its red, green and blue
+values separated by spaces. See <a
+href="WorldMap.html#M000059">WorldMap.default_palette</a> as example.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000068-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000068-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 250</span>
+250:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">palette=</span>(<span class="ruby-identifier">palette</span>)
+251:       <span class="ruby-ivar">@palette</span> = <span class="ruby-identifier">palette</span>
+252:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="#M000071" class="method-signature">
+          <span class="method-name">ranges</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get @<a href="WorldMap.html#M000071">ranges</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000071-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000071-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 265</span>
+265:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ranges</span>
+266:       <span class="ruby-ivar">@ranges</span>
+267:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
+
+        <div class="method-heading">
+          <a href="#M000072" class="method-signature">
+          <span class="method-name">ranges=</span><span class="method-args">(ranges)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000071">ranges</a>. You can set it manually
+using this method or using the methods <a
+href="WorldMap.html#M000053">make_ranges_linear</a> or <a
+href="WorldMap.html#M000054">make_ranges_log</a> and then <a
+href="WorldMap.html#M000052">make_colors</a>. The format must be an array
+of hashes, as each hash is like { :range =&gt; [&lt;from&gt;,&lt;to&gt;],
+:color =&gt; &lt;some color string&gt; } When a country value fits in any
+range, this country will be painted in the color defined.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000072-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000072-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 273</span>
+273:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ranges=</span>(<span class="ruby-identifier">ranges</span>)
+274:       <span class="ruby-ivar">@ranges</span> = <span class="ruby-identifier">ranges</span>
+275:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000056" class="method-detail">
+        <a name="M000056"></a>
+
+        <div class="method-heading">
+          <a href="#M000056" class="method-signature">
+          <span class="method-name">save_file</span><span class="method-args">(output = 'output.svg', options = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Outputs the map to a file in some format. Parameters:
+</p>
+<pre>
+  output: The output filename
+  options: A hash of options:
+    size: A size string as recognized by RMagick. Default: The template size
+    quality: An integer from 0 to 100. Default: 100
+</pre>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000056-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000056-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 164</span>
+164:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">save_file</span>(<span class="ruby-identifier">output</span> = <span class="ruby-value str">'output.svg'</span>, <span class="ruby-identifier">options</span> = {})
+165:       <span class="ruby-identifier">format</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">output</span>).<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\./</span>,<span class="ruby-value str">''</span>)
+166:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'svg'</span>
+167:         <span class="ruby-identifier">svg</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output</span>, <span class="ruby-value str">'w'</span>)
+168:         <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@svg</span>
+169:         <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+170:       <span class="ruby-keyword kw">else</span>
+171:         <span class="ruby-identifier">image</span> = <span class="ruby-constant">Magick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-identifier">from_blob</span>(<span class="ruby-ivar">@svg</span>)[<span class="ruby-value">0</span>]
+172:         <span class="ruby-identifier">image</span>.<span class="ruby-identifier">change_geometry!</span>(<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:size</span>]) { <span class="ruby-operator">|</span><span class="ruby-identifier">cols</span>, <span class="ruby-identifier">rows</span>, <span class="ruby-identifier">img</span><span class="ruby-operator">|</span> <span class="ruby-identifier">img</span>.<span class="ruby-identifier">resize!</span>(<span class="ruby-identifier">cols</span>, <span class="ruby-identifier">rows</span>) } <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:size</span>].<span class="ruby-identifier">nil?</span>
+173:         <span class="ruby-identifier">image</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">output</span>) {
+174:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">format</span> = <span class="ruby-identifier">format</span>
+175:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">quality</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:quality</span>] <span class="ruby-operator">||</span> <span class="ruby-value">100</span>
+176:         }
+177:       <span class="ruby-keyword kw">end</span>
+178:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="#M000069" class="method-signature">
+          <span class="method-name">svg</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets the content of the @<a href="WorldMap.html#M000069">svg</a> file
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000069-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000069-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 255</span>
+255:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">svg</span>
+256:       <span class="ruby-ivar">@svg</span>
+257:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="#M000070" class="method-signature">
+          <span class="method-name">svg=</span><span class="method-args">(svg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets the content of the @<a href="WorldMap.html#M000069">svg</a> file
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000070-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000070-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 260</span>
+260:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">svg=</span>(<span class="ruby-identifier">svg</span>)
+261:       <span class="ruby-ivar">@svg</span> = <span class="ruby-identifier">svg</span>
+262:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000075" class="method-detail">
+        <a name="M000075"></a>
+
+        <div class="method-heading">
+          <a href="#M000075" class="method-signature">
+          <span class="method-name">title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Gets @<a href="WorldMap.html#M000075">title</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000075-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000075-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 288</span>
+288:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>
+289:       <span class="ruby-ivar">@title</span>
+290:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000076" class="method-detail">
+        <a name="M000076"></a>
+
+        <div class="method-heading">
+          <a href="#M000076" class="method-signature">
+          <span class="method-name">title=</span><span class="method-args">(title)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sets @<a href="WorldMap.html#M000075">title</a>. The <a
+href="WorldMap.html#M000075">title</a> is just a string.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000076-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000076-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/data_map.rb, line 293</span>
+293:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title=</span>(<span class="ruby-identifier">title</span>)
+294:       <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/&lt;g id=&quot;map-and-legend&quot;[^&gt;]*&gt;/</span>,<span class="ruby-value str">'&lt;g id=&quot;map-and-legend&quot;&gt;'</span>)
+295:       <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/&lt;text id=&quot;map-title&quot; x=&quot;10&quot; y=&quot;25&quot; font-size=&quot;60&quot; font-family=&quot;sans-serif&quot;&gt;[^&lt;]*&lt;\/text&gt;/</span>,<span class="ruby-value str">''</span>)
+296:       <span class="ruby-ivar">@svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">'&lt;g id=&quot;map-and-legend&quot;&gt;'</span>,<span class="ruby-value str">'&lt;g id=&quot;map-and-legend&quot; transform=&quot;translate(0,50)&quot;&gt;&lt;text id=&quot;map-title&quot; x=&quot;10&quot; y=&quot;25&quot; font-size=&quot;60&quot; font-family=&quot;sans-serif&quot;&gt;'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">title</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'&lt;/text&gt;'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span>
+297:       <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">title</span>
+298:     <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

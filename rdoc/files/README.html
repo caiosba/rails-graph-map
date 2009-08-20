@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Aug 20 10:28:22 -0300 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>GraphMap</h1>
+<p>
+GraphMap is a Ruby On Rails plugin that provides a few view helpers to
+represent information in maps.
+</p>
+<h1>Instalation</h1>
+<p>
+You can get the code using Git:
+</p>
+<pre>
+        git clone gitosis@safernet.org.br:graph_map
+</pre>
+<p>
+<a href="../classes/DataMap.html">DataMap</a> is a Ruby library which
+GraphMap depends on. It&#8216;s attached as a submodule, so inside the
+graph_map directory, do the following:
+</p>
+<pre>
+        git submodule init
+        git submodule update
+</pre>
+<p>
+Yet inside the graph_map directory, you can run &#8216;rake&#8217; to run
+its tests.
+</p>
+<p>
+Now at the root of your Rails application, run
+</p>
+<pre>
+        rake graph_map:install
+</pre>
+<p>
+to perform some actions the will let you use the plugin.
+</p>
+<p>
+And so, you&#8216;re done.
+</p>
+<h1>Configuration</h1>
+<p>
+Some things can be set up using the hash <a
+href="../classes/GraphMapConfig.html#M000001">GraphMapConfig.config</a>,
+see its keys below. Possible settings are (both methods get and set are
+available for each key):
+</p>
+<pre>
+        root:                  The root of your Rails application.            Default: RAILS_ROOT
+        output:                Output file name.                              Default: graph_map
+        maps_dir:              Where the maps are saved.                      Default: /public/graph_maps
+        maps_path:             Where to look for maps to show in the browser. Default: /graph_maps
+        js:                    Where to look for javascripts.                 Default: /javascripts
+        default_output_format: Image format to use when none is sent.         Default: png
+</pre>
+<h1>Usage</h1>
+<p>
+This plugin provides some view helpers. To use some of them, simply call
+</p>
+<pre>
+        &lt;%= &lt;view_helper_name&gt; &lt;parameters&gt; %&gt;
+</pre>
+<p>
+inside some view of your Rails application. Below it&#8216;s listed what
+helpers are available and what are their possible parameters.
+</p>
+<h1>Example</h1>
+<p>
+For example, you could do the following inside a view:
+</p>
+<pre>
+  &lt;%= plot_svg_map { &quot;es&quot; =&gt; 200, &quot;en&quot; =&gt; 150, &quot;br&quot; =&gt; 200, &quot;ar&quot; =&gt; 25 }
+      :map =&gt; {
+        :title =&gt; 'This is my map',
+        :output =&gt; 'map_filename_without_extension',
+                                :tag =&gt; 'iframe'
+      },
+      :html =&gt; {
+        :width  =&gt; 900,
+        :height =&gt; 500,
+                                :class =&gt; 'map-class'
+      }
+  %&gt;
+
+  &lt;%= plot_bitmap_map { &quot;es&quot; =&gt; 200, &quot;en&quot; =&gt; 150, &quot;br&quot; =&gt; 200, &quot;ar&quot; =&gt; 25 }
+      :map =&gt; {
+        :title =&gt; 'This is my map',
+        :output =&gt; 'map_filename_without_extension',
+                                :quality =&gt; 75,
+                                :size =&gt; '800x600&gt;',
+                                :format =&gt; 'jpg'
+      },
+      :html =&gt; {
+                                :class =&gt; 'map-class',
+                                :alt =&gt; 'This is a map'
+      }
+  %&gt;
+
+  &lt;%= link_to_map 'Download my map!',
+      { &quot;es&quot; =&gt; 200, &quot;en&quot; =&gt; 150, &quot;br&quot; =&gt; 200, &quot;ar&quot; =&gt; 25 },
+      :map =&gt; {
+        :title =&gt; 'My map',
+        :format =&gt; 'pdf',
+        :output =&gt; 'map'
+      },
+      :html =&gt; {
+        :class =&gt; 'pdf-link'
+      }
+  %&gt;
+
+  &lt;%= plot_table { &quot;br&quot; =&gt; 100, &quot;ar&quot; =&gt; 50 }, {
+                          :flag    =&gt; 'Flag',
+                          :country =&gt; 'Country name',
+                          :value   =&gt; 'Number of...',
+                          :total   =&gt; 'Sum'
+                        },
+                        {
+                          :width =&gt; '100%'
+                        }
+  %&gt;
+</pre>
+<h1>View Helpers</h1>
+<p>
+plot_svg_map: Plots a map in SVG format. Returns an HTML tag with an SVG
+map inside it.
+</p>
+<pre>
+        plot_svg_map(data = {}, options = { :html =&gt; {}, :map =&gt; {} })
+
+        data: Hash whose pairs are in format '&lt;country code&gt; =&gt; &lt;value&gt;'.
+        Example: { &quot;us&quot; =&gt; 125, &quot;es&quot; =&gt; 254 }
+        Default: {}
+
+        options: Can be HTML options or map options.
+
+                html: Options for the tag that will be rendered. Any HTML attribute can be passed.
+                Example: { :style =&gt; 'border: 0', :id =&gt; 'my_map', :class =&gt; 'some class' }
+                Default: {}
+                Possible values: Any HTML attribute
+
+                map: Options for the map. Some of them are the same as the ones accepted by the DataMap lib.
+                Example: { :tag =&gt; 'embed', :title =&gt; 'Title of my map' }
+                Default: {}
+                Possible values:
+                        tag: Which tag will be rendered to show the SVG map. If some strange value is passed, an exception will be raised.
+                                         Possible values: 'embed', 'iframe' and 'object'
+                                         Default: 'iframe'
+
+                        use_js: If the map must be dynamic or not. Dynamic means that when the mouse is over a country, this country is highlighted
+                                                        and a tooltip is shown, with the country name, flag and value.
+                                                        Possible values: true or false
+                                                        Default: true
+
+                        range_function: What function will be used to make the values ranges. An exception will be raised if the function name
+                                                                                        is not recognized.
+                                                                                        Possible values: 'log' or 'linear'
+                                                                                        Default: 'log'
+
+                        log_base: What is the base of the log function, if the chosen range function is log.
+                                                                Possible values: Any integer
+                                                                Default: 10
+
+                        title: Title of the map.
+                                                 Possible values: Any string
+                                                 Default: No title
+
+                        legend: If the legend must be shown or not.
+                                                        Possible values: true or false
+                                                        Default: true
+
+                        palette: What color palette will be used.
+                                                         Possible values: The path for a color palette file. This file must be a plain text file with each line being
+                                                         a color in RGB format. See the default one as an example.
+                                                         Default: WorldMap.default_palette (data_map/palettes/tango.color)
+
+                        lang: In what language the country names will be shown.
+                                                Possible values: A string representing a language. The directory data_map/lang/&lt;language&gt; must be present, with the proper
+                                                files inside it. See data_map/lang/en for example.
+                                                Default: WorldMap.default_language (en)
+
+                        template: The SVG template that will be used.
+                                                                Possible values: The path for an SVG file.
+                                                                Default: WorldMap.default_template (default_world_map.svg)
+
+                        output: The output filename (without the .svg extension).
+                                                        Possible values: Any string
+                                                        Default: GraphMapConfig.output
+</pre>
+<p>
+plot_bitmap_map: Plots a map in some bitmap format. Returns a img tag with
+the map.
+</p>
+<pre>
+        plot_bitmap_map(data = {}, options = { :html =&gt; {}, :map =&gt; {} })
+
+        data: Hash whose pairs are in format '&lt;country code&gt; =&gt; &lt;value&gt;'.
+        Example: { &quot;us&quot; =&gt; 125, &quot;es&quot; =&gt; 254 }
+        Default: {}
+
+        options: Can be HTML options or map options.
+
+                html: Options for the img tag that will be rendered. Any HTML attribute can be passed.
+                Example: { :style =&gt; 'border: 0', :id =&gt; 'my_map', :class =&gt; 'some class' }
+                Default: {}
+                Possible values: Any HTML attribute
+
+                map: Options for the map. Some of them are the same as the ones accepted by the DataMap lib.
+                Example: { :title =&gt; 'Title of my map', :format =&gt; 'pdf' }
+                Default: {}
+                Possible values:
+                        format: Which format will be used to render the map.
+                                                 Possible values: The ones accepted by RMagick
+                                             Default: GraphMapConfig.default_output_format
+
+                        range_function: What function will be used to make the values ranges. An exception will be raised if the function name
+                                                                                        is not recognized.
+                                                                                        Possible values: 'log' or 'linear'
+                                                                                        Default: 'log'
+
+                        log_base: What is the base of the log function, if the chosen range function is log.
+                                                                Possible values: Any integer
+                                                                Default: 10
+
+                        title: Title of the map.
+                                                 Possible values: Any string
+                                                 Default: No title
+
+                        legend: If the legend must be shown or not.
+                                                        Possible values: true or false
+                                                        Default: true
+
+                        palette: What color palette will be used.
+                                                         Possible values: The path for a color palette file. This file must be a plain text file with each line being
+                                                         a color in RGB format. See the default one as an example.
+                                                         Default: WorldMap.default_palette (data_map/palettes/tango.color)
+
+                        lang: In what language the country names will be shown.
+                                                Possible values: A string representing a language. The directory data_map/lang/&lt;language&gt; must be present, with the proper
+                                                files inside it. See data_map/lang/en for example.
+                                                Default: WorldMap.default_language (en)
+
+                        template: The SVG template that will be used.
+                                                                Possible values: The path for an SVG file.
+                                                                Default: WorldMap.default_template (default_world_map.svg)
+
+                        output: The output filename (without the file extension).
+                                                        Possible values: Any string
+                                                        Default: GraphMapConfig.output
+
+                        quality: Quality of the image.
+                                                         Possible values: Any integer from 0 to 100
+                                                         Default: 100
+
+                        size: Dimensions of the image.
+                                                Possible values: A size string accepted by RMagick
+                                                Default: Size of the chosen template
+</pre>
+<p>
+link_to_map: Links to a map. Returns an &lt;a&gt; tag pointing to the map.
+</p>
+<pre>
+        link_to_map(link_text = 'Download', data = {}, options = { :html =&gt; {}, :map =&gt; {} })
+
+        The 'data' and 'options' parameters works as the same as above.
+        If the options[:map][:format] parameter is set as 'svg', an SVG map will be generated, so use the same map options as plot_svg_map.
+        Else, a bitmap map will be generated, so use the same map options as plot_bitmap_map.
+
+        link_text: The text link.
+                                                 Possible values: Any string
+                                                 Default: 'Download'
+</pre>
+<p>
+plot_table: Plots a table showing each value by country. Returns a
+&lt;table&gt; tag. The first column are the flags, then the country names
+</p>
+<pre>
+                                                and finally the values. The countries column and the values column are sortable (by Javascript). The sum of all the values
+                                                is shown in the last row of the table. The country name depends on the language set in DataMap.
+
+        plot_table(data = {}, header = {}, html_options = {})
+
+        data: Hash whose pairs are in format '&lt;country code&gt; =&gt; &lt;value&gt;'.
+        Example: { &quot;us&quot; =&gt; 125, &quot;es&quot; =&gt; 254 }
+        Default: {}
+
+        header: How the columns will be named. The keys are:
+                flag: How to call the flags column. Default: 'Flag'
+                country: How to call the countries column. Default: 'Country'
+                value: How to call the values column. Default: 'Value'
+                country: How to call the total row. Default: 'Total'
+
+        html_options: Options for the img tag that will be rendered. Any HTML attribute can be passed.
+        Example: { :style =&gt; 'border: 0', :id =&gt; 'my_map', :class =&gt; 'some class' }
+        Default: {}
+        Possible values: Any HTML attribute
+</pre>
+<h1>Clearing the cache</h1>
+<p>
+At some time, possibly the number of files stored in your graph_maps
+directory will be really big. To avoid this, you can generate some maps
+with the same name (this way it will be always overwritten). Thus, you can
+clear the cache at any time by running
+</p>
+<pre>
+        rake graph_map:clear
+</pre>
+<p>
+It will erase all content in your graph_maps folder.
+</p>
+<h1>More</h1>
+<p>
+Check the RDoc documentation. See <a
+href="../classes/DataMap.html">DataMap</a> documentation for more details
+that are not covered here.
+</p>
+<h1>License</h1>
+<p>
+Take a look at MIT-LICENSE.
+</p>
+<h1>Dependencies</h1>
+<p>
+The <a href="../classes/DataMap.html">DataMap</a> dependencies: RMagick and
+Color.
+</p>
+<p>
+For Debian users, it&#8216;s enough to get the following packages:
+libcolor-tools-ruby librmagick-ruby
+</p>
+<h1>Contact</h1>
+<p>
+If you find any mistake in this documentation or bug in the plugin, please
+contact me at caiosba@gmail.com
+</p>
+<h1>Credits</h1>
+<p>
+Copyright (c) 2009 Caio SBA &lt;caiosba@gmail.com&gt;
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

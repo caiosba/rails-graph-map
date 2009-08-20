@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: WorldMapTest</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">WorldMapTest</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/data_map/test/world_map_test_rb.html">
+                lib/data_map/test/world_map_test.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Test::Unit::TestCase
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Test the <a href="DataMap.html">DataMap</a> library
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000041">test_add_js</a>&nbsp;&nbsp;
+      <a href="#M000028">test_alter_data</a>&nbsp;&nbsp;
+      <a href="#M000014">test_assert</a>&nbsp;&nbsp;
+      <a href="#M000043">test_country_name</a>&nbsp;&nbsp;
+      <a href="#M000037">test_get_and_set_ranges</a>&nbsp;&nbsp;
+      <a href="#M000030">test_get_data</a>&nbsp;&nbsp;
+      <a href="#M000038">test_get_js</a>&nbsp;&nbsp;
+      <a href="#M000031">test_get_lang</a>&nbsp;&nbsp;
+      <a href="#M000033">test_get_palette</a>&nbsp;&nbsp;
+      <a href="#M000035">test_get_svg</a>&nbsp;&nbsp;
+      <a href="#M000042">test_get_title</a>&nbsp;&nbsp;
+      <a href="#M000017">test_identify_countries</a>&nbsp;&nbsp;
+      <a href="#M000016">test_initialize_custom</a>&nbsp;&nbsp;
+      <a href="#M000015">test_initialize_default</a>&nbsp;&nbsp;
+      <a href="#M000021">test_make_colors</a>&nbsp;&nbsp;
+      <a href="#M000022">test_make_colors_error</a>&nbsp;&nbsp;
+      <a href="#M000018">test_make_legend</a>&nbsp;&nbsp;
+      <a href="#M000023">test_make_ranges_linear</a>&nbsp;&nbsp;
+      <a href="#M000024">test_make_ranges_log</a>&nbsp;&nbsp;
+      <a href="#M000019">test_map_values</a>&nbsp;&nbsp;
+      <a href="#M000020">test_map_values_error</a>&nbsp;&nbsp;
+      <a href="#M000027">test_must_have_default_settings</a>&nbsp;&nbsp;
+      <a href="#M000039">test_no_js</a>&nbsp;&nbsp;
+      <a href="#M000025">test_paint_country</a>&nbsp;&nbsp;
+      <a href="#M000026">test_save_file</a>&nbsp;&nbsp;
+      <a href="#M000029">test_set_data</a>&nbsp;&nbsp;
+      <a href="#M000040">test_set_js</a>&nbsp;&nbsp;
+      <a href="#M000032">test_set_lang</a>&nbsp;&nbsp;
+      <a href="#M000034">test_set_palette</a>&nbsp;&nbsp;
+      <a href="#M000036">test_set_svg</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000041" class="method-detail">
+        <a name="M000041"></a>
+
+        <div class="method-heading">
+          <a href="#M000041" class="method-signature">
+          <span class="method-name">test_add_js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000041-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000041-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 261</span>
+261:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_add_js</span>
+262:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+263:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+264:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+265:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+266:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">js</span> = [<span class="ruby-value str">'file'</span>]
+267:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">add_js</span>
+268:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;script xlink:href=&quot;file&quot; type=&quot;text/ecmascript&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+269:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="#M000028" class="method-signature">
+          <span class="method-name">test_alter_data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000028-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000028-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 148</span>
+148:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_alter_data</span>
+149:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+150:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+151:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+152:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+153:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">alter_data</span> <span class="ruby-value str">&quot;fr&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>, <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">30</span>
+154:     <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">30</span>, <span class="ruby-value str">&quot;fr&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span>)
+155:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">test_assert</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 8</span>
+ 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_assert</span>
+ 9:     <span class="ruby-identifier">assert</span> <span class="ruby-keyword kw">true</span>
+10:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000043" class="method-detail">
+        <a name="M000043"></a>
+
+        <div class="method-heading">
+          <a href="#M000043" class="method-signature">
+          <span class="method-name">test_country_name</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000043-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000043-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 281</span>
+281:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_country_name</span>
+282:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'brazil'</span>, <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">country_name</span>(<span class="ruby-value str">'br'</span>)
+283:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000037" class="method-detail">
+        <a name="M000037"></a>
+
+        <div class="method-heading">
+          <a href="#M000037" class="method-signature">
+          <span class="method-name">test_get_and_set_ranges</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000037-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000037-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 225</span>
+225:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_and_set_ranges</span>
+226:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+227:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+228:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+229:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+230:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span>
+231:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">200</span>] } ]
+232:     <span class="ruby-identifier">assert_equal</span>([ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">200</span>] } ], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span>)
+233:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="#M000030" class="method-signature">
+          <span class="method-name">test_get_data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 166</span>
+166:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_data</span>
+167:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+168:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+169:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+170:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+171:     <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span>)
+172:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000038" class="method-detail">
+        <a name="M000038"></a>
+
+        <div class="method-heading">
+          <a href="#M000038" class="method-signature">
+          <span class="method-name">test_get_js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000038-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000038-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 235</span>
+235:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_js</span>
+236:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+237:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+238:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+239:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:js</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value str">'dom.js'</span>,<span class="ruby-value str">'effects.js'</span>]
+240:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">add_js</span>
+241:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;script xlink:href=&quot;effects.js&quot; type=&quot;text/ecmascript&quot; /&gt;&lt;script xlink:href=&quot;dom.js&quot; type=&quot;text/ecmascript&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+242:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="#M000031" class="method-signature">
+          <span class="method-name">test_get_lang</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000031-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000031-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 174</span>
+174:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_lang</span>
+175:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+176:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+177:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+178:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:lang</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'es'</span>
+179:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'es'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">lang</span>
+180:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="#M000033" class="method-signature">
+          <span class="method-name">test_get_palette</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000033-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000033-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 191</span>
+191:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_palette</span>
+192:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+193:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+194:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+195:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'test'</span>
+196:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'test'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">palette</span>
+197:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
+
+        <div class="method-heading">
+          <a href="#M000035" class="method-signature">
+          <span class="method-name">test_get_svg</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 208</span>
+208:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_svg</span>
+209:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+210:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+211:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+212:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+213:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+214:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000042" class="method-detail">
+        <a name="M000042"></a>
+
+        <div class="method-heading">
+          <a href="#M000042" class="method-signature">
+          <span class="method-name">test_get_title</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000042-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000042-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 271</span>
+271:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_get_title</span>
+272:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+273:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+274:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+275:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+276:     <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">title</span>
+277:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">title</span> = <span class="ruby-value str">'Test'</span>
+278:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'Test'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">title</span>
+279:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">test_identify_countries</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 32</span>
+32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_identify_countries</span>
+33:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+34:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path class=&quot;land br&quot; d=&quot;125,45&quot; /&gt;&lt;path class=&quot;land es&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+35:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+36:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+37:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">identify_countries</span>
+38:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path class=&quot;land br&quot; country-name=&quot;brazil&quot; country-value=&quot;100&quot; onmouseover=&quot;worldMapOver(this)&quot; onmouseout=&quot;worldMapOut(this)&quot; onclick=&quot;worldMapClick(this)&quot; ondblclick=&quot;worldMapDblClick(this)&quot; d=&quot;125,45&quot; /&gt;&lt;path class=&quot;land es&quot; country-name=&quot;spain&quot; country-value=&quot;50&quot; onmouseover=&quot;worldMapOver(this)&quot; onmouseout=&quot;worldMapOut(this)&quot; onclick=&quot;worldMapClick(this)&quot; ondblclick=&quot;worldMapDblClick(this)&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+39:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">test_initialize_custom</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 21</span>
+21:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_initialize_custom</span>
+22:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+23:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+24:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+25:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:lang</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'pt-BR'</span>, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'/tmp/test.color'</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">:br</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span> }
+26:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>).<span class="ruby-identifier">read</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+27:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'pt-BR'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">lang</span>
+28:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'/tmp/test.color'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">palette</span>
+29:     <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-identifier">:br</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span> }, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span>)
+30:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">test_initialize_default</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 12</span>
+12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_initialize_default</span>
+13:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span>
+14:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_template</span>).<span class="ruby-identifier">read</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+15:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_language</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">lang</span>
+16:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_palette</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">palette</span>
+17:     <span class="ruby-identifier">assert_equal</span>([], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">js</span>)
+18:     <span class="ruby-identifier">assert_equal</span>({}, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span>)
+19:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">test_make_colors</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 72</span>
+72:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_make_colors</span>
+73:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+74:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;g&gt;&lt;path fill=&quot;#ccc&quot; class=&quot;land br&quot; /&gt;&lt;path fill=&quot;#ccc&quot; class=&quot;land es&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+75:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+76:     <span class="ruby-identifier">colors</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+77:     <span class="ruby-identifier">colors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;255 0 0\n0 255 0&quot;</span>
+78:     <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">close</span>
+79:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">path</span>
+80:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">99</span>] }, { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">200</span>] } ]
+81:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_colors</span>
+82:     <span class="ruby-identifier">assert_equal</span>([ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">99</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#ff0000'</span> }, { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">200</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#00ff00'</span> } ], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span>)
+83:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">test_make_colors_error</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 85</span>
+85:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_make_colors_error</span>
+86:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+87:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+88:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+89:     <span class="ruby-identifier">colors</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+90:     <span class="ruby-identifier">colors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;255 0 0&quot;</span>
+91:     <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">close</span>
+92:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">path</span>
+93:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">99</span>] }, { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">200</span>] } ]
+94:     <span class="ruby-identifier">assert_raise</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword kw">do</span>
+95:       <span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_colors</span>
+96:     <span class="ruby-keyword kw">end</span>
+97:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">test_make_legend</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 41</span>
+41:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_make_legend</span>
+42:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+43:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;g&gt;&lt;path class=&quot;land br&quot; d=&quot;125,45&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+44:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+45:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+46:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">199</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#fc3'</span> }, { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">200</span>,<span class="ruby-value">400</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#ccc'</span> } ]
+47:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_legend</span>
+48:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;g&gt;&lt;path class=&quot;land br&quot; d=&quot;125,45&quot; /&gt;&lt;rect x=&quot;2750&quot; class=&quot;legend&quot; y=&quot;75&quot; width=&quot;27&quot; height=&quot;27&quot; fill=&quot;#fc3&quot; /&gt;&lt;text class=&quot;label&quot; x=&quot;2800&quot; y=&quot;98&quot; style=&quot;font-size:28px; font-family:sans-serif&quot;&gt;&lt;tspan&gt;Between 0 and 199&lt;/tspan&gt;&lt;/text&gt;&lt;rect x=&quot;2750&quot; class=&quot;legend&quot; y=&quot;115&quot; width=&quot;27&quot; height=&quot;27&quot; fill=&quot;#ccc&quot; /&gt;&lt;text class=&quot;label&quot; x=&quot;2800&quot; y=&quot;138&quot; style=&quot;font-size:28px; font-family:sans-serif&quot;&gt;&lt;tspan&gt;Between 200 and 400&lt;/tspan&gt;&lt;/text&gt;&lt;rect x=&quot;2750&quot; class=&quot;legend&quot; y=&quot;155&quot; width=&quot;27&quot; height=&quot;27&quot; style=&quot;fill:#b9b9b9&quot; /&gt;&lt;text class=&quot;label&quot; x=&quot;2800&quot; y=&quot;178&quot; style=&quot;font-size:28px; font-family:sans-serif&quot;&gt;&lt;tspan&gt;No information available&lt;/tspan&gt;&lt;/text&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/\n\s*/</span>,<span class="ruby-value str">''</span>)
+49:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">test_make_ranges_linear</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 99</span>
+ 99:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_make_ranges_linear</span>
+100:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+101:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+102:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+103:     <span class="ruby-identifier">colors</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+104:     <span class="ruby-identifier">colors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;255 0 0\n0 255 0\n0 0 255\n0 0 0&quot;</span>
+105:     <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">close</span>
+106:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span>, <span class="ruby-value str">&quot;pt&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span> }, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">path</span>
+107:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_ranges_linear</span>
+108:     <span class="ruby-identifier">assert_equal</span>([{<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">29</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">30</span>,<span class="ruby-value">59</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">60</span>,<span class="ruby-value">89</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">90</span>,<span class="ruby-value">119</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">120</span>,<span class="ruby-value">150</span>]}], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span>)
+109:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">test_make_ranges_log</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 111</span>
+111:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_make_ranges_log</span>
+112:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+113:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+114:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+115:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span>, <span class="ruby-value str">&quot;pt&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>, <span class="ruby-value str">&quot;fr&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span> }
+116:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_ranges_log</span>
+117:     <span class="ruby-identifier">assert_equal</span>([{<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">9</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">10</span>,<span class="ruby-value">99</span>]}, {<span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">1000</span>]}], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span>)
+118:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">test_map_values</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 51</span>
+51:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_map_values</span>
+52:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+53:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;g&gt;&lt;path fill=&quot;#ccc&quot; class=&quot;land br&quot; /&gt;&lt;path fill=&quot;#ccc&quot; class=&quot;land es&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+54:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+55:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>, <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+56:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">0</span>,<span class="ruby-value">99</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#c00'</span> }, { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">200</span>], <span class="ruby-identifier">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'#fc3'</span> } ]
+57:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">map_values</span>
+58:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;g&gt;&lt;path fill=&quot;#fc3&quot; class=&quot;land br&quot; /&gt;&lt;path fill=&quot;#c00&quot; class=&quot;land es&quot; /&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+59:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">test_map_values_error</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 61</span>
+61:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_map_values_error</span>
+62:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+63:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+64:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+65:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+66:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">ranges</span> = [ { <span class="ruby-identifier">:range</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">100</span>,<span class="ruby-value">200</span>] } ]
+67:     <span class="ruby-identifier">assert_raise</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword kw">do</span>
+68:       <span class="ruby-identifier">m</span>.<span class="ruby-identifier">map_values</span>
+69:     <span class="ruby-keyword kw">end</span>
+70:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="#M000027" class="method-signature">
+          <span class="method-name">test_must_have_default_settings</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000027-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000027-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 142</span>
+142:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_must_have_default_settings</span>
+143:     <span class="ruby-identifier">assert_kind_of</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_template</span>
+144:     <span class="ruby-identifier">assert_kind_of</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_language</span>
+145:     <span class="ruby-identifier">assert_kind_of</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">default_palette</span>
+146:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000039" class="method-detail">
+        <a name="M000039"></a>
+
+        <div class="method-heading">
+          <a href="#M000039" class="method-signature">
+          <span class="method-name">test_no_js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000039-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000039-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 244</span>
+244:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_no_js</span>
+245:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+246:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+247:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+248:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+249:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+250:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="#M000025" class="method-signature">
+          <span class="method-name">test_paint_country</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 120</span>
+120:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_paint_country</span>
+121:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+122:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+123:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+124:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+125:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">paint_country</span>(<span class="ruby-value str">'br'</span>,<span class="ruby-value str">'#fc0'</span>)
+126:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#fc0&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+127:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">test_save_file</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 129</span>
+129:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_save_file</span>
+130:     <span class="ruby-identifier">out</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+131:     <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'test'</span>
+132:     <span class="ruby-identifier">out</span>.<span class="ruby-identifier">close</span>
+133:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+134:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">save_file</span>
+135:     <span class="ruby-identifier">assert</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-value str">'output.svg'</span>
+136:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-value str">'output.svg'</span>).<span class="ruby-identifier">read</span>
+137:     <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-value str">'output.svg'</span>)
+138:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">save_file</span>(<span class="ruby-identifier">out</span>.<span class="ruby-identifier">path</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.png'</span>)
+139:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">&quot;image/png\n&quot;</span>, <span class="ruby-node">%x[file -bi #{out.path}.png]</span>
+140:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="#M000029" class="method-signature">
+          <span class="method-name">test_set_data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000029-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000029-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 157</span>
+157:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_set_data</span>
+158:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+159:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+160:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+161:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+162:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span> = { <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }
+163:     <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value str">&quot;es&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">50</span> }, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">data</span>)
+164:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000040" class="method-detail">
+        <a name="M000040"></a>
+
+        <div class="method-heading">
+          <a href="#M000040" class="method-signature">
+          <span class="method-name">test_set_js</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000040-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000040-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 252</span>
+252:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_set_js</span>
+253:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+254:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;!-- javascript --&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+255:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+256:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+257:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">js</span> = [<span class="ruby-value str">'file'</span>]
+258:     <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value str">'file'</span>], <span class="ruby-identifier">m</span>.<span class="ruby-identifier">js</span>)
+259:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="#M000032" class="method-signature">
+          <span class="method-name">test_set_lang</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000032-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000032-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 182</span>
+182:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_set_lang</span>
+183:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+184:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+185:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+186:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:lang</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'es'</span>
+187:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">lang</span> = <span class="ruby-value str">'fr'</span>
+188:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'fr'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">lang</span>
+189:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="#M000034" class="method-signature">
+          <span class="method-name">test_set_palette</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000034-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 199</span>
+199:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_set_palette</span>
+200:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+201:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+202:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+203:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }, <span class="ruby-identifier">:palette</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'test'</span>
+204:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">palette</span> = <span class="ruby-value str">'changed'</span>
+205:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'changed'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">palette</span>
+206:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000036" class="method-detail">
+        <a name="M000036"></a>
+
+        <div class="method-heading">
+          <a href="#M000036" class="method-signature">
+          <span class="method-name">test_set_svg</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000036-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000036-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/data_map/test/world_map_test.rb, line 216</span>
+216:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_set_svg</span>
+217:     <span class="ruby-identifier">svg</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">100</span>)
+218:     <span class="ruby-identifier">svg</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">'&lt;svg&gt;&lt;g&gt;&lt;path id=&quot;test&quot; fill=&quot;#ccc&quot; class=&quot;land br&quot; stroke=&quot;1&quot; /&gt;&lt;/g&gt;&lt;/svg&gt;'</span>
+219:     <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">close</span>
+220:     <span class="ruby-identifier">m</span> = <span class="ruby-constant">DataMap</span><span class="ruby-operator">::</span><span class="ruby-constant">WorldMap</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">svg</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">:data</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value str">&quot;br&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span> }
+221:     <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span> = <span class="ruby-value str">'&lt;svg&gt;changed&lt;/svg&gt;'</span>
+222:     <span class="ruby-identifier">assert_equal</span> <span class="ruby-value str">'&lt;svg&gt;changed&lt;/svg&gt;'</span>, <span class="ruby-identifier">m</span>.<span class="ruby-identifier">svg</span>
+223:   <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
